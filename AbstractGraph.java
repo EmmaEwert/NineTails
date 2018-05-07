@@ -10,7 +10,6 @@ public abstract class AbstractGraph<V> implements Graph<V> {
 
 	/** Construct a graph from vertices and edges stored in arrays */
 	protected AbstractGraph(V[] vertices, int[][] edges) {
-
 		for (int i = 0; i < vertices.length; i++)
 			addVertex(vertices[i]);
 
@@ -30,7 +29,7 @@ public abstract class AbstractGraph<V> implements Graph<V> {
 		for (int i = 0; i < numberOfVertices; i++)
 			addVertex((V)(new Integer(i))); // vertices is {0, 1, ...}
 
-	createAdjacencyLists(edges, numberOfVertices);
+		createAdjacencyLists(edges, numberOfVertices);
 	}
 
 	/** Construct a graph from integer vertices 0, 1, and edge array */
@@ -38,24 +37,22 @@ public abstract class AbstractGraph<V> implements Graph<V> {
 		for (int i = 0; i < numberOfVertices; i++)
 			addVertex((V)(new Integer(i))); // vertices is {0, 1, ...}
 
-	createAdjacencyLists(edges, numberOfVertices);
+		createAdjacencyLists(edges, numberOfVertices);
 	}
 
 	/** Create adjacency lists for each vertex */
-	private void createAdjacencyLists(
-			int[][] edges, int numberOfVertices) {
+	private void createAdjacencyLists(int[][] edges, int numberOfVertices) {
 		for (int i = 0; i < edges.length; i++) {
 			addEdge(edges[i][0], edges[i][1]);
 		}
-			}
+	}
 
 	/** Create adjacency lists for each vertex */
-	private void createAdjacencyLists(
-			List<Edge> edges, int numberOfVertices) {
+	private void createAdjacencyLists(List<Edge> edges, int numberOfVertices) {
 		for (Edge edge: edges) {
 			addEdge(edge.u, edge.v);
 		}
-			}
+	}
 
 	@Override /** Return the number of vertices in the graph */
 	public int getSize() {
@@ -71,8 +68,6 @@ public abstract class AbstractGraph<V> implements Graph<V> {
 	public V getVertex(int index) {
 		return vertices.get(index);
 	}
-
-
 
 	@Override /** Return the index for the specified vertex object */
 	public int getIndex(V v) {
@@ -98,8 +93,7 @@ public abstract class AbstractGraph<V> implements Graph<V> {
 		for (int u = 0; u < neighbors.size(); u++) {
 			System.out.print(getVertex(u) + " (" + u + "): ");
 			for (Edge e: neighbors.get(u)) {
-				System.out.print("(" + getVertex(e.u) + ", " +
-						getVertex(e.v) + ") ");
+				System.out.print("(" + getVertex(e.u) + ", " + getVertex(e.v) + ") ");
 			}
 			System.out.println();
 		}
@@ -182,8 +176,7 @@ public abstract class AbstractGraph<V> implements Graph<V> {
 	}
 
 	/** Recursive method for DFS search */
-	private void dfs(int u, int[] parent, List<Integer> searchOrder,
-			boolean[] isVisited) {
+	private void dfs(int u, int[] parent, List<Integer> searchOrder, boolean[] isVisited) {
 		// Store the visited vertex
 		searchOrder.add(u);
 		isVisited[u] = true; // Vertex v visited
@@ -205,8 +198,7 @@ public abstract class AbstractGraph<V> implements Graph<V> {
 		for (int i = 0; i < parent.length; i++)
 			parent[i] = -1; // Initialize parent[i] to -1
 
-		java.util.LinkedList<Integer> queue =
-			new java.util.LinkedList<>(); // list used as a queue
+		java.util.LinkedList<Integer> queue = new java.util.LinkedList<>(); // list used as a queue
 		boolean[] isVisited = new boolean[vertices.size()];
 		queue.offer(v); // Enqueue v
 		isVisited[v] = true; // Mark it visited
@@ -277,8 +269,7 @@ public abstract class AbstractGraph<V> implements Graph<V> {
 		/** Print a path from the root to vertex v */
 		public void printPath(int index) {
 			List<V> path = getPath(index);
-			System.out.print("A path from " + vertices.get(root) + " to " +
-					vertices.get(index) + ": ");
+			System.out.print("A path from " + vertices.get(root) + " to " + vertices.get(index) + ": ");
 			for (int i = path.size() - 1; i >= 0; i--)
 				System.out.print(path.get(i) + " ");
 		}
