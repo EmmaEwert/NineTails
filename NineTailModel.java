@@ -10,8 +10,7 @@ public class NineTailModel {
 		List<AbstractGraph.Edge> edges = getEdges();
 
 		// Create a graph
-		UnweightedGraph<Integer> graph = new UnweightedGraph<>(
-				edges, NUMBER_OF_NODES);
+		UnweightedGraph<Integer> graph = new UnweightedGraph<>(edges, NUMBER_OF_NODES);
 
 		// Obtain a BSF tree rooted at the target node
 		tree = graph.bfs(511);
@@ -19,8 +18,7 @@ public class NineTailModel {
 
 	/** Create all edges for the graph */
 	private List<AbstractGraph.Edge> getEdges() {
-		List<AbstractGraph.Edge> edges =
-			new ArrayList<>(); // Store edges
+		List<AbstractGraph.Edge> edges = new ArrayList<>(); // Store edges
 
 		for (int u = 0; u < NUMBER_OF_NODES; u++) {
 			for (int k = 0; k < 9; k++) {
