@@ -281,8 +281,7 @@ public abstract class AbstractGraph<V> implements Graph<V> {
 			for (int i = 0; i < parent.length; i++) {
 				if (parent[i] != -1) {
 					// Display an edge
-					System.out.print("(" + vertices.get(parent[i]) + ", " +
-							vertices.get(i) + ") ");
+					System.out.print("(" + vertices.get(parent[i]) + ", " + vertices.get(i) + ") ")
 				}
 			}
 			System.out.println();
